@@ -1,0 +1,6 @@
+F1 - fullscreen mode on/off
+F2 - regenerate
+
+F5 - red color component on/off
+F6 - green color component on/off
+F7 - blue color component on/off
