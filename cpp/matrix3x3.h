@@ -15,7 +15,7 @@ public:
 
 	double* operator[] (int n);
 	matrix3x3& operator= (matrix3x3 d);
-	matrix3x3 (matrix3x3& d);
+	matrix3x3 (const matrix3x3& d);
 	matrix3x3 (void);
 	void multiply_by_vector (vector3d* v);
 	void make_e (void);

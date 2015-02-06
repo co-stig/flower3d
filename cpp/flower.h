@@ -4,7 +4,17 @@
 #include "petal.h"
 #include "smooth_double.h"
 
-const k = 6;
+const int k = 6;
+const int m = 10;
+const double alpha = 0.8f;
+
+bool red_comp = true;
+bool green_comp = false;
+bool blue_comp = false;
+bool alpha_comp = false;
+bool lighting = false;
+bool draw_flowers = true;
+bool draw_pot = true;
 
 template <class petal_generator, class center_generator>
 class flower
@@ -86,6 +96,7 @@ void flower<petal_generator, center_generator>::display_gl(texturizer* tex)
 template <class petal_generator, class center_generator>
 void flower<petal_generator, center_generator>::generate_flower(vector3d v1, vector3d v2, double sz)
 {
+	double PI = 3.14159265358979;
 	mv1 = v1; mv2 = v2;
 
 	center.generate_center (k, sz * 1);

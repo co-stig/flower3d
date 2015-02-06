@@ -12,15 +12,13 @@
 
 #define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
 
-#ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>			// MFC support for Windows Common Controls
-#endif // _AFX_NO_AFXCMN_SUPPORT
-
+#include <windows.h>
 //OpenGL Headers
 #include <gl\gl.h>
 #include <gl\glu.h>
 //#include <gl\glut.h>
-#include <gl\glaux.h>
+#include <time.h>
+#include <stdio.h>
 
 #include <mmsystem.h>		// for MM timers (you'll need WINMM.LIB)
 //{{AFX_INSERT_LOCATION}}

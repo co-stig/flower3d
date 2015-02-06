@@ -16,9 +16,6 @@
 #include "trunk.h"
 #include "flowerpot.h"
 
-//const n = 50;
-const m = 10;
-
 typedef petal_gen1 petal_gen;
 typedef center_gen1 center_gen;
 
@@ -35,15 +32,6 @@ GLfloat	xrot;				// X Rotation ( NEW )
 GLfloat	yrot;				// Y Rotation ( NEW )
 //GLfloat	zrot;				// Z Rotation ( NEW )
 smooth_double zrot(0);
-double alpha = 0.8f;
-
-bool red_comp = true;
-bool green_comp = false;
-bool blue_comp = false;
-bool alpha_comp = false;
-bool lighting = false;
-bool draw_flowers = true;
-bool draw_pot = true;
 
 GLfloat LightAmbient[]= { 0.5f, 0.5f, 0.5f, 1.0f }; 				// Ambient Light Values ( NEW )
 GLfloat LightDiffuse[]= { 1.0f, 1.0f, 1.0f, 1.0f };				 // Diffuse Light Values ( NEW )
@@ -75,7 +63,7 @@ texturizer tex;
 
 LRESULT	CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration For WndProc
 
-GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize The GL Window
+void ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize The GL Window
 {
 	if (height==0)										// Prevent A Divide By Zero By
 	{
@@ -88,13 +76,14 @@ GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize Th
 	glLoadIdentity();									// Reset The Projection Matrix
 
 	// Calculate The Aspect Ratio Of The Window
+	// TODO: This is the only LOC using GLU, replace it to enable compatibility with OpenGL ES
 	gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,1000.0f);
 
 	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 	glLoadIdentity();									// Reset The Modelview Matrix
 }
 
-int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
+int InitGL(void)										// All Setup For OpenGL Goes Here
 {
 	if (!tex.load_textures(3))							// Jump To Texture Loading Routine ( NEW )
 	{
@@ -124,7 +113,7 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	return TRUE;										// Initialization Went OK
 }
 
-int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
+int DrawGLScene(void)									// Here's Where We Do All The Drawing
 {
 	if (alpha_comp)
 	{
@@ -194,7 +183,7 @@ void KillFlowers (void)
 	delete[] p;
 }
 
-GLvoid KillGLWindow(GLvoid)								// Properly Kill The Window
+void KillGLWindow(void)								// Properly Kill The Window
 {
 	KillFlowers();
 

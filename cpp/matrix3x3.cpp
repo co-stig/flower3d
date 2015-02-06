@@ -14,11 +14,11 @@ matrix3x3& matrix3x3::operator= (matrix3x3 d)
 	return *this;
 }
 
-matrix3x3::matrix3x3 (matrix3x3& d)
+matrix3x3::matrix3x3 (const matrix3x3& d)
 {
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
-			data[i][j] = d[i][j];
+			data[i][j] = d.data[i][j];
 }
 
 matrix3x3::matrix3x3 (void)
@@ -124,14 +124,6 @@ void matrix3x3::swap_rows (int i1, int i2)
 
 void matrix3x3::display (void)
 {
-	CString t;
-	for (int i = 0; i < 3; i++)
-	{
-		CString g;
-		g.Format ("%.2f %.2f %.2f\n", data[i][0], data[i][1], data[i][2]);
-		t += g;
-	}
-	MessageBox (NULL, t, "matrix3x3", MB_OK);
 }
 
 matrix3x3 matrix3x3::tau_this_H (matrix3x3 H)

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "SOIL.h"
 
 class texturizer
 {
@@ -15,7 +16,6 @@ class texturizer
 
 	private:
 
-		AUX_RGBImageRec* load_BMP(char* filename);
 		GLuint*	textures;
 
 };

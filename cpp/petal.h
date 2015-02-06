@@ -81,18 +81,6 @@ void petal<petal_generator>::set_basis (matrix3x3 new_basis)
 template <class petal_generator>
 void petal<petal_generator>::display (void)
 {
-	CString r, g;
-
-	g.Format ("Perp.: %.2f %.2f %.2f\n", perpendicular.x, perpendicular.y, perpendicular.z); r += g;
-	g.Format ("Turn 0: %.2f %.2f %.2f,    %.2f %.2f %.2f\n\n", turns[0].v1.x, turns[0].v1.y, turns[0].v1.z, turns[0].v2.x, turns[0].v2.y, turns[0].v2.z); r += g;
-
-	for (unsigned n = 1; n < turns.size(); n++)
-	{
-		g.Format ("%.2f %.2f %.2f,    %.2f %.2f %.2f\n", turns[n].v1.x, turns[n].v1.y, turns[n].v1.z, turns[n].v2.x, turns[n].v2.y, turns[n].v2.z);
-		r += g;
-	}
-
-	MessageBox (NULL, r, "petal", MB_OK);
 }
 
 template <class petal_generator>
